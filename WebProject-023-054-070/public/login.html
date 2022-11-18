@@ -8,18 +8,18 @@
 	</head>
 	<body>
 		<div id=container>
+			<form class="form" action="/checkLogin" method="post" accept-charset="utf-8">
+					Username:<input type="text" name="username" value="" placeholder="" required><br>
+					Password: <input type="password" name="password" value="" placeholder="" required><br>
+					Re Password: <input type="password" name="password" value="" placeholder="" required><br>
+					<span id="errordisplay"></span><br>
+					<input type="submit" value="Login">
+			</form>
 			<div>
 				DO NOT HAVE SAMACHICK? 
 				<a href="register.html">SIGN UP NOW!</a>
 			</div>
-			<form class="form" action="/checkLogin" method="post" accept-charset="utf-8">
-					Username:<input type="text" name="username" value="" placeholder="" required><br>
-					Password: <input type="password" name="password" value="" placeholder="" required><br>
-					<span id="errordisplay"></span><br>
-					<input type="submit" value="Login">
-			</form>
-			
 		</div>
-	
+
 	</body>
 </html>
