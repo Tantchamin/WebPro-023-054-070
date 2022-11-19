@@ -20,16 +20,16 @@ function getCookie(name){
 }
 
 function pageLoad(){
-	document.getElementById('postbutton').onclick = getData;
+	// document.getElementById('postbutton').onclick = getData;
 
-	document.getElementById('displayPic').onclick = fileUpload;
-	document.getElementById('fileField').onchange = fileSubmit;
+	// document.getElementById('displayPic').onclick = fileUpload;
+	// document.getElementById('fileField').onchange = fileSubmit;
 	
-	var username = getCookie('username');
+	// var username = getCookie('username');
 
-	document.getElementById("username").innerHTML = username;
-	console.log(getCookie('img'));
-	showImg('img/'+getCookie('img'));
+	// document.getElementById("username").innerHTML = username;
+	// console.log(getCookie('img'));
+	// showImg('img/'+getCookie('img'));
 	readPost();
 }
 

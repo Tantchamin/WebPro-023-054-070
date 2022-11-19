@@ -62,6 +62,12 @@ const queryDB = (sql) => {
 app.post('/regisDB', async (req,res) => {
     let sql = "CREATE TABLE IF NOT EXISTS userinfo (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), password VARCHAR(100), img VARCHAR(100))";
     let result = await queryDB(sql);
+    let checkpassword = req.body.password;
+    let recheckpassword = req.body.repassword;
+    // ตรวจ password
+    if(checkpassword != recheckpassword){
+        return res.redirect('register.html');
+    }
     sql = `INSERT INTO userinfo (username, password, img) VALUES ("${req.body.username}", "${req.body.password}", "avatar.png")`;
     result = await queryDB(sql);
     console.log("New record created successfullyone");
@@ -147,7 +153,7 @@ app.post('/checkLogin',async (req,res) => {
         res.cookie('username', userForm)
         res.cookie('img', result[0].img)
         console.log("Now, You are Log in")
-        return res.redirect('feed.html');
+        return res.redirect('homepage.html');
     }
     console.log(result)
 })
