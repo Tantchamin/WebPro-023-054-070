@@ -39,24 +39,24 @@ function getData(){
 	writePost(msg);
 }
 
-function fileUpload(){
-	document.getElementById('fileField').click();
-}
+// function fileUpload(){
+// 	document.getElementById('fileField').click();
+// }
 
-function fileSubmit(){
-	document.getElementById('formId').submit();
-}
+// function fileSubmit(){
+// 	document.getElementById('formId').submit();
+// }
 
 // แสดงรูปในพื้นที่ที่กำหนด
-function showImg(filename){
-	if (filename !==""){
-		var showpic = document.getElementById('displayPic');
-		showpic.innerHTML = "";
-		var temp = document.createElement("img");
-		temp.src = filename;
-		showpic.appendChild(temp);
-	}
-}
+// function showImg(filename){
+// 	if (filename !==""){
+// 		var showpic = document.getElementById('displayPic');
+// 		showpic.innerHTML = "";
+// 		var temp = document.createElement("img");
+// 		temp.src = filename;
+// 		showpic.appendChild(temp);
+// 	}
+// }
 
 // complete it
 async function readPost(){

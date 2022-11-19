@@ -74,3 +74,29 @@
 .boldText {
     font-weight: bold;
 }
+
+#posting{
+	text-align: right;
+	padding-right: 3%;
+	width:50%;
+	
+}
+
+textarea{
+	width: 90%;
+	min-width: 200px;
+	height: 100px;
+	margin-right: 0px;
+	text-align: left;
+	font-size: 20px;
+}
+
+#postbutton{
+	width:20%;
+	min-width: 100px;
+	font-size: 20px;
+}
+
+#game-layer{
+    border: 3px solid black;
+}
