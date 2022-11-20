@@ -20,7 +20,7 @@ function getCookie(name){
 }
 
 function pageLoad(){
-	// document.getElementById('postbutton').onclick = getData;
+	document.getElementById('postbutton').onclick = getData;
 
 	// document.getElementById('displayPic').onclick = fileUpload;
 	// document.getElementById('fileField').onchange = fileSubmit;

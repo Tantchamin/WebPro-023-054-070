@@ -100,3 +100,8 @@ textarea{
 #game-layer{
     border: 3px solid black;
 }
+
+#logoutbutton{
+    margin-right: auto;
+    margin-left: 95.5%;
+}
