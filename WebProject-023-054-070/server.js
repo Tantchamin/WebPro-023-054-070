@@ -116,17 +116,49 @@ app.get('/logout', (req,res) => {
     return res.redirect('login.html');
 })
 
-//ทำให้สมบูรณ์
-app.get('/readPost', async (req,res) => {
-    let sql = "CREATE TABLE IF NOT EXISTS postdb (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
-    let result = await queryDB(sql);
-    sql = `SELECT username, post FROM postdb`;
+app.post('/createButton', async (req,res) => {
+    sql = `INSERT INTO buttondb (id) VALUES ("${req.body.id}")`;
     result = await queryDB(sql);
+    res.send(result);
+    
+})
+
+app.get('/readButton', async (req,res) => {
+    let sql = `SELECT lovecount, likecount, dislikecount  FROM buttondb`;
+    let result = await queryDB(sql);
     result = Object.assign({},result);
     console.log(result);
     res.send(result);
 })
 
+app.post('/updateLove',async (req,res) => {
+    let sql = `UPDATE buttondb SET lovecount = '${req.body.lovecount}' WHERE id = '1' `;
+    let result = await queryDB(sql);
+    res.send(result);
+})
+
+app.post('/updateLike',async (req,res) => {
+    let sql = `UPDATE buttondb SET likecount = '${req.body.likecount}' WHERE id = '1' `;
+    let result = await queryDB(sql);
+    res.send(result);
+})
+
+app.post('/updateDislike',async (req,res) => {
+    let sql = `UPDATE buttondb SET dislikecount = '${req.body.dislikecount}' WHERE id = '1' `;
+    let result = await queryDB(sql);
+    res.send(result);
+})
+
+//ทำให้สมบูรณ์
+app.get('/readPost', async (req,res) => {
+    let sql = "CREATE TABLE IF NOT EXISTS postdb (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
+    let result = await queryDB(sql);
+    sql = `SELECT username, post FROM postdb`; 
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.send(result);
+})
 
 //ทำให้สมบูรณ์
 app.post('/writePost',async (req,res) => {
