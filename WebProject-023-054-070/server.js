@@ -180,6 +180,14 @@ app.post('/checkLogin',async (req,res) => {
     console.log(result)
 })
 
+// app.get('/leaderboard', function(req, res) {
+//     sql = `SELECT username, score FROM scoredb`;
+//     connection.query(sql, function(err, results){
+//         if (err) throw err;
+//         res.send(results);
+//         return res.redirect('leaderboard.html');
+//     });
+// });
 
 app.listen(port, hostname, () => {
         console.log(`Server running at   http://${hostname}:${port}/login.html`);
