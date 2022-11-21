@@ -105,3 +105,8 @@ textarea{
     margin-right: auto;
     margin-left: 95.5%;
 }
+
+div > canvas{
+    margin-top: 10px;
+    border: 5px solid red;
+}

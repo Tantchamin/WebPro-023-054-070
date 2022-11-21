@@ -2,7 +2,11 @@ var myGamePiece;
 var myObstacles = [];
 var myScore;
 
-window.onload = startGame;
+window.onload = pageLoad;
+
+function pageLoad(){
+    document.getElementById('playbutton').onclick = startGame;
+}
 
 function startGame() {
     myGamePiece = new component(30, 30, "red", 10, 120);
