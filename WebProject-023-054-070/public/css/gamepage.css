@@ -110,3 +110,15 @@ div > canvas{
     margin-top: 10px;
     border: 5px solid red;
 }
+
+#logo1{
+    margin-right: 95%;
+    margin-left: auto;
+    width: 1.5%;
+    height: 45%;
+}
+
+#logo2{
+    width: 50%;
+    height: 50%;
+}
