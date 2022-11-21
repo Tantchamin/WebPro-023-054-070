@@ -37,8 +37,8 @@ const imageFilter = (req, file, cb) => {
 const con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "BESTrock120244",
-    database: "web"
+    password: "Chamin-480054",
+    database: "assign12"
 })
 
 con.connect(err => {
@@ -127,12 +127,34 @@ app.get('/readPost', async (req,res) => {
     res.send(result);
 })
 
+
 //ทำให้สมบูรณ์
 app.post('/writePost',async (req,res) => {
     let getPost = req.body.message;
     let sql = `INSERT INTO postdb (username, post) VALUES ("${req.body.user}", "${getPost}")`;
     let result = await queryDB(sql);
     sql = `SELECT username, post FROM postdb`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.send(result);
+})
+
+app.get('/readScore', async (req,res) => {
+    let sql = "CREATE TABLE IF NOT EXISTS scoredb (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), score VARCHAR(100))";
+    let result = await queryDB(sql);
+    sql = `SELECT username, score FROM scoredb`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.send(result);
+})
+
+app.post('/writeScore',async (req,res) => {
+    let getScore = req.body.score;
+    let sql = `INSERT INTO scoredb (username, score) VALUES ("${req.body.user}", "${getScore}")`;
+    let result = await queryDB(sql);
+    sql = `SELECT username, score FROM scoredb`;
     result = await queryDB(sql);
     result = Object.assign({},result);
     console.log(result);

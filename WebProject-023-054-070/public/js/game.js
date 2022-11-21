@@ -1,8 +1,19 @@
 var myGamePiece;
 var myObstacles = [];
 var myScore;
+var playerscore;
 
 window.onload = pageLoad;
+
+function getCookie(name){
+	var value = "";
+	try{
+		value = document.cookie.split("; ").find(row => row.startsWith(name)).split('=')[1]
+		return value
+	}catch(err){
+		return false
+	} 
+}
 
 function pageLoad(){
     document.getElementById('playbutton').onclick = startGame;
@@ -86,6 +97,8 @@ function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
+            readScore();
+            writeScore(playerscore);
             // win con
             return window.location.replace("homepage.html");
         } 
@@ -109,6 +122,7 @@ function updateGameArea() {
     }
     //get score 
     myScore.text="SCORE: " + myGameArea.frameNo;
+    playerscore = myGameArea.frameNo;
     myScore.update();
     myGamePiece.newPos();
     myGamePiece.update();
@@ -121,4 +135,30 @@ function everyinterval(n) {
 
 function accelerate(n) {
     myGamePiece.gravity = n;
+}
+
+async function readScore(){
+    const response = await fetch("/readScore");
+    const content = await response.json();
+
+}
+
+// complete it
+async function writeScore(playerscore){
+    let username = getCookie('username');
+	let response = await fetch("/writeScore", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+        user:username,
+        score:playerscore
+        })
+    })
+    
+    const content = await response.json();
+	console.log(playerscore);
+    console.log(content);
 }

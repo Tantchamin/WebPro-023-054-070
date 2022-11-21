@@ -1,39 +1,34 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<meta charset="UTF-8">
-	<title>play</title>
-	<link type="text/css" rel="stylesheet" href="css/gamepage.css">
-	<script type="text/javascript" src="js/game.js"></script>
-</head>
-
-<body>
-	<div class="grid-container">
-		<div id="header" class="centerPage">
-			<img id="logo1" src="img/logo1.png" alt="logo" />
-		</div>
-		<div id="tagmenu">
-			<p class="boldText"><a href="homepage.html">Back</a></p>
-			<div class="centerPage">
-				<p class="boldText">Game</p>
+	<head>
+		<meta charset="UTF-8">
+		<title>play</title>
+		<link type="text/css" rel="stylesheet" href="css/gamepage.css">
+		<script type="text/javascript" src="js/game.js"></script>
+	</head>
+	<body>
+		<div class="grid-container">
+			<div id="header">
+				<img id="logo1" src="img/logo1.png" alt="logo" />
+			</div>
+            <div id="tagmenu">
+				<p  class="boldText"><a href="homepage.html">Back</a></p>
+			</div>
+			<div id="menu3" class="centerPage">
+				<button id="playbutton">play</button>
+				<div id="game-container">
+					<div id="game-layer">
+						
+					</div>
+			</div>
+				
+				<br>
+				<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
+				<p>Use the ACCELERATE button to stay in the air</p>
+				<p>How long can you stay alive?</p>
 			</div>
 		</div>
-		<div id="menu3" class="centerPage">
-			<button id="playbutton">play</button>
-			<div id="game-container">
-				<div id="game-layer">
-
-				</div>
-			</div>
-
-			<br>
-			<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
-			<p>Use the ACCELERATE button to stay in the air</p>
-			<p>How long can you stay alive?</p>
-		</div>
-	</div>
-
-</body>
-
+	
+	</body>
 </html>
+

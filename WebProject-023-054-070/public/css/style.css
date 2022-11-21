@@ -28,6 +28,13 @@ input{
 	border-radius: 7px;
 }
 
+#logo1{
+    margin-right: 95%;
+    margin-left: auto;
+    width: 3%;
+    height: 55%;
+}
+
 #logo2{
     width: 50%;
     height: 50%;
