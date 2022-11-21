@@ -82,8 +82,8 @@ async function writePost(msg){
     })
     
     const content = await response.json();
-	console.log(username);
-    console.log(content);
+	// console.log(username);
+    // console.log(content);
     showPost(content);
 }
 

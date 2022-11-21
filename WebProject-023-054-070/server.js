@@ -37,8 +37,8 @@ const imageFilter = (req, file, cb) => {
 const con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "Chamin-480054",
-    database: "assign12"
+    password: "BESTrock120244",
+    database: "web"
 })
 
 con.connect(err => {
@@ -123,7 +123,7 @@ app.get('/readPost', async (req,res) => {
     sql = `SELECT username, post FROM postdb`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
+    // console.log(result);
     res.send(result);
 })
 
@@ -136,7 +136,7 @@ app.post('/writePost',async (req,res) => {
     sql = `SELECT username, post FROM postdb`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
+    // console.log(result);
     res.send(result);
 })
 
@@ -146,7 +146,7 @@ app.get('/readScore', async (req,res) => {
     sql = `SELECT username, score FROM scoredb`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
+    // console.log(result);
     res.send(result);
 })
 
@@ -157,8 +157,8 @@ app.post('/writeScore',async (req,res) => {
     sql = `SELECT username, score FROM scoredb`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
-    res.send(result);
+    // console.log(result);
+    return res.redirect('homepage.html');
 })
 
 //ทำให้สมบูรณ์

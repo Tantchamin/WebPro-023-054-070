@@ -2,6 +2,7 @@ var myGamePiece;
 var myObstacles = [];
 var myScore;
 var playerscore;
+var cheack = false;
 
 window.onload = pageLoad;
 
@@ -17,6 +18,7 @@ function getCookie(name){
 
 function pageLoad(){
     document.getElementById('playbutton').onclick = startGame;
+    cheack = false;
 }
 
 function startGame() {
@@ -97,8 +99,12 @@ function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
+            if(cheack == false)
+            {
             readScore();
             writeScore(playerscore);
+            cheack = true;
+            }
             // win con
             return window.location.replace("homepage.html");
         } 
@@ -159,6 +165,6 @@ async function writeScore(playerscore){
     })
     
     const content = await response.json();
-	console.log(playerscore);
-    console.log(content);
+	// console.log(playerscore);
+    // console.log(content);
 }
