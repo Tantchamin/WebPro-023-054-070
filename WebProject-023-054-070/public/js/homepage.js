@@ -30,7 +30,6 @@ async function createButton(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-        id:1
         })
     })
     

@@ -117,7 +117,9 @@ app.get('/logout', (req,res) => {
 })
 
 app.post('/createButton', async (req,res) => {
-    sql = `INSERT INTO buttondb (id) VALUES ("${req.body.id}")`;
+    let sql = "CREATE TABLE IF NOT EXISTS buttondb (id INT , reg_date TIMESTAMP, lovecount INT, likecount INT, dislikecount INT)";
+    result = await queryDB(sql);
+    sql = `INSERT INTO buttondb (id) VALUES ("${1}")`;
     result = await queryDB(sql);
     res.send(result);
     
