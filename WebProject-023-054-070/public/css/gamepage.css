@@ -76,10 +76,10 @@
 }
 
 #posting{
+    margin-top: 3%;
 	text-align: right;
 	padding-right: 3%;
 	width:50%;
-	
 }
 
 textarea{
