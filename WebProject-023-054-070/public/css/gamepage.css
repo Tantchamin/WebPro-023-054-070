@@ -17,6 +17,7 @@
 
 #menu {
     grid-column: 1 / span 1;
+    grid-row: 3/ 100;
     border-radius: 25px;
     background-color: rgb(60, 85, 117);
 }
@@ -61,6 +62,12 @@
 }
 
 #menu3 {
+    grid-column: 2 / span 2;
+    border-radius: 25px;
+    background-color: lightsteelblue;
+}
+
+#menu4 {
     grid-column: 1 / span 3;
     border-radius: 25px;
     background-color: lightsteelblue;
@@ -132,5 +139,5 @@ div > canvas{
 }
 
 body{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(138, 138, 138);
 }
