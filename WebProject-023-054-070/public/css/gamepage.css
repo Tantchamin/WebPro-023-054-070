@@ -6,30 +6,30 @@
 
 #header {
     grid-column: 1 / span 3;
-    background-color: lightsteelblue;
+    background-color: rgb(211, 211, 211);
 }
 
 #tagmenu{
     grid-column: 1 / span 3;
     border-radius: 25px;
-    background-color: cornflowerblue;
+    background-color: rgb(61, 61, 61);
 }
 
 #menu {
     grid-column: 1 / span 1;
     border-radius: 25px;
-    background-color: lightsteelblue;
+    background-color: rgb(60, 85, 117);
 }
 
 #main {
     grid-column: 2 / span 1;
-    background-color: rgb(172, 172, 172);
+    background-color: rgb(138, 138, 138);
 }
 
 #submenu {
     grid-column: 3/ span 1;
     border-radius: 25px;
-    background-color: lightsteelblue;
+    background-color: rgb(138, 138, 138);
 }
 
 .grid-container2 {
@@ -46,7 +46,7 @@
 #tagmenu2{
     grid-column: 1 / span 2;
     border-radius: 25px;
-    background-color: cornflowerblue;
+    background-color: rgb(141, 141, 141);
 }
 
 #menu2 {
@@ -131,5 +131,5 @@ div > canvas{
 }
 
 body{
-    background-color: rgb(15, 67, 134);
+    background-color: rgb(255, 255, 255);
 }
