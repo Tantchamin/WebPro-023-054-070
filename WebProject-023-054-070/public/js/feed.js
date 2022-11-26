@@ -1,4 +1,3 @@
-// check ว่ามีการ set cookies หรือยังถ้ามีจะไปยัง feed.html แต่ถ้าไม่มีจะกลับไปที่ login.html
 function checkCookie(){
 	var username = "";
 	if(getCookie("username")==false){
@@ -20,54 +19,31 @@ function getCookie(name){
 }
 
 function pageLoad(){
+	createPost();
+	readPost("/readPost2");
 	document.getElementById('postbutton').onclick = getData;
-
-	// document.getElementById('displayPic').onclick = fileUpload;
-	// document.getElementById('fileField').onchange = fileSubmit;
-	
-	// var username = getCookie('username');
-
-	// document.getElementById("username").innerHTML = username;
-	// console.log(getCookie('img'));
-	// showImg('img/'+getCookie('img'));
-	readPost();
 }
 
 function getData(){
 	var msg = document.getElementById("textmsg").value;
 	document.getElementById("textmsg").value = "";
-	writePost(msg);
+	writePost(msg,"post2db");
 }
 
-// function fileUpload(){
-// 	document.getElementById('fileField').click();
-// }
+async function createPost(){
+    const response = await fetch("/createPost",);
+    const content = await response.json();
 
-// function fileSubmit(){
-// 	document.getElementById('formId').submit();
-// }
+}
 
-// แสดงรูปในพื้นที่ที่กำหนด
-// function showImg(filename){
-// 	if (filename !==""){
-// 		var showpic = document.getElementById('displayPic');
-// 		showpic.innerHTML = "";
-// 		var temp = document.createElement("img");
-// 		temp.src = filename;
-// 		showpic.appendChild(temp);
-// 	}
-// }
-
-// complete it
-async function readPost(){
-    const response = await fetch("/readPost");
+async function readPost(readPostname){
+    const response = await fetch(readPostname);
     const content = await response.json();
     showPost(content);
 
 }
 
-// complete it
-async function writePost(msg){
+async function writePost(msg, tablename){
     let username = getCookie('username');
 	let response = await fetch("/writePost", {
         method: "POST",
@@ -76,18 +52,17 @@ async function writePost(msg){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+		table: tablename,
         user:username,
         message:msg
         })
     })
     
     const content = await response.json();
-	console.log(username);
-    console.log(content);
     showPost(content);
 }
 
-// แสดง post ที่อ่านมาได้ ลงในพื้นที่ที่กำหนด
+
 function showPost(data){
 	var keys = Object.keys(data);
 	var divTag = document.getElementById("feed-container");

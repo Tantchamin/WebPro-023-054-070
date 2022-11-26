@@ -152,10 +152,63 @@ app.post('/updateDislike',async (req,res) => {
 })
 
 //ทำให้สมบูรณ์
-app.get('/readPost', async (req,res) => {
-    let sql = "CREATE TABLE IF NOT EXISTS postdb (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
+app.get('/createPost', async (req,res) => {
+    let sql = "CREATE TABLE IF NOT EXISTS post1db (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
     let result = await queryDB(sql);
-    sql = `SELECT username, post FROM postdb`; 
+    sql = "CREATE TABLE IF NOT EXISTS post2db (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
+    result = await queryDB(sql);
+    sql = "CREATE TABLE IF NOT EXISTS post3db (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
+    result = await queryDB(sql);
+    sql = "CREATE TABLE IF NOT EXISTS post4db (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
+    result = await queryDB(sql);
+    sql = "CREATE TABLE IF NOT EXISTS post5db (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
+    result = await queryDB(sql);
+})
+
+app.get('/readPost1', async (req,res) => {
+    let sql = "CREATE TABLE IF NOT EXISTS post1db (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
+    let result = await queryDB(sql);
+    sql = `SELECT username, post FROM post1db`; 
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.send(result);
+})
+
+app.get('/readPost2', async (req,res) => {
+    let sql = "CREATE TABLE IF NOT EXISTS post2db (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
+    let result = await queryDB(sql);
+    sql = `SELECT username, post FROM post2db`; 
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.send(result);
+})
+
+app.get('/readPost3', async (req,res) => {
+    let sql = "CREATE TABLE IF NOT EXISTS post3db (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
+    let result = await queryDB(sql);
+    sql = `SELECT username, post FROM post3db`; 
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.send(result);
+})
+
+app.get('/readPost4', async (req,res) => {
+    let sql = "CREATE TABLE IF NOT EXISTS post4db (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
+    let result = await queryDB(sql);
+    sql = `SELECT username, post FROM post4db`; 
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.send(result);
+})
+
+app.get('/readPost5', async (req,res) => {
+    let sql = "CREATE TABLE IF NOT EXISTS post5db (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
+    let result = await queryDB(sql);
+    sql = `SELECT username, post FROM post5db`; 
     result = await queryDB(sql);
     result = Object.assign({},result);
     console.log(result);
@@ -165,9 +218,9 @@ app.get('/readPost', async (req,res) => {
 //ทำให้สมบูรณ์
 app.post('/writePost',async (req,res) => {
     let getPost = req.body.message;
-    let sql = `INSERT INTO postdb (username, post) VALUES ("${req.body.user}", "${getPost}")`;
+    let sql = `INSERT INTO ${req.body.table} (username, post) VALUES ("${req.body.user}", "${getPost}")`;
     let result = await queryDB(sql);
-    sql = `SELECT username, post FROM postdb`;
+    sql = `SELECT username, post FROM ${req.body.table}`;
     result = await queryDB(sql);
     result = Object.assign({},result);
     console.log(result);
@@ -177,7 +230,7 @@ app.post('/writePost',async (req,res) => {
 app.get('/readScore', async (req,res) => {
     let sql = "CREATE TABLE IF NOT EXISTS scoredb (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), score INT, likes INT)";
     let result = await queryDB(sql);
-    sql = `SELECT username, score, likes FROM scoredb ORDER BY SCORE DESC`;
+    sql = `SELECT id, username, score, likes FROM scoredb ORDER BY SCORE DESC`;
     result = await queryDB(sql);
     result = Object.assign({},result);
     console.log(result);
@@ -214,6 +267,13 @@ app.post('/checkLogin',async (req,res) => {
     console.log(result)
 })
 
+app.post('/writeLikes',async (req,res) => {
+    let sql = `UPDATE scoredb 
+    SET likes = '${req.body.like}' 
+    WHERE id = '${req.body.id}'`;
+    result = await queryDB(sql);
+    res.send({succes:true});
+  })
 
 app.listen(port, hostname, () => {
         console.log(`Server running at   http://${hostname}:${port}/login.html`);
