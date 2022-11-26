@@ -273,7 +273,32 @@ app.post('/writeLikes',async (req,res) => {
     WHERE id = '${req.body.id}'`;
     result = await queryDB(sql);
     res.send({succes:true});
-  })
+})
+
+app.get('/comment1', (req,res) => {
+    res.cookie('comment', 1);
+    return res.redirect('comment.html');
+})
+
+app.get('/comment2', (req,res) => {
+    res.cookie('comment', 2);
+    return res.redirect('comment.html');
+})
+
+app.get('/comment3', (req,res) => {
+    res.cookie('comment', 3);
+    return res.redirect('comment.html');
+})
+
+app.get('/comment4', (req,res) => {
+    res.cookie('comment', 4);
+    return res.redirect('comment.html');
+})
+
+app.get('/comment5', (req,res) => {
+    res.cookie('comment', 5);
+    return res.redirect('comment.html');
+})
 
 app.listen(port, hostname, () => {
         console.log(`Server running at   http://${hostname}:${port}/login.html`);

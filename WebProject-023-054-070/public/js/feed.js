@@ -1,3 +1,5 @@
+var db;
+
 function checkCookie(){
 	var username = "";
 	if(getCookie("username")==false){
@@ -20,14 +22,57 @@ function getCookie(name){
 
 function pageLoad(){
 	createPost();
-	readPost("/readPost2");
-	document.getElementById('postbutton').onclick = getData;
+	if(getCookie("comment")==1){
+		readPost("/readPost1");
+		post1();
+	}
+	if(getCookie("comment")==2){
+		readPost("/readPos2");
+		post2();
+	}
+	if(getCookie("comment")==3){
+		readPost("/readPost3");
+		post3();
+	}
+	if(getCookie("comment")==4){
+		readPost("/readPost4");
+		post4();
+	}
+	if(getCookie("comment")==5){
+		readPost("/readPost5");
+		post5();
+	}
 }
 
-function getData(){
+function post1(){
+	alert("kuay");
+	document.getElementById('postbutton').onclick = getData("post1db");
+}
+
+function post2(){
+	alert("kuay2");
+	document.getElementById('postbutton').onclick = getData("post2db");
+}
+
+function post3(){
+	alert("kuay3");
+	document.getElementById('postbutton').onclick = getData("post3db");
+}
+
+function post4(){
+	alert("kuay4");
+	document.getElementById('postbutton').onclick = getData("post4db");
+}
+
+function post5(){
+	alert("kuay5");
+	document.getElementById('postbutton').onclick = getData("post5db");
+}
+
+function getData(database){
 	var msg = document.getElementById("textmsg").value;
 	document.getElementById("textmsg").value = "";
-	writePost(msg,"post2db");
+	writePost(msg,database);
 }
 
 async function createPost(){
