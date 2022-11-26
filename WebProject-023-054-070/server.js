@@ -76,79 +76,10 @@ app.post('/regisDB', async (req,res) => {
 })
 
 //ทำให้สมบูรณ์
-app.post('/profilepic', (req,res) => {
-    let upload = multer({storage: storage, fileFilter: imageFilter}).single('avatar');
-    let user = req.cookies.username;
-
-    upload(req,res,(err) => {
-        if(req.fileValidationError){
-            return res.send(req.fileValidationError);
-        }
-        else if(!req.file){
-            return res.send('Please select file to upload');
-        }
-        else if(err instanceof multer.MulterError){
-            return res.send(err);
-        }
-        else if(err){
-            return res.send(err);
-        }
-
-        let filename = req.file.filename;
-        updateImg(user, filename).then(()=>{
-            console.log(filename);
-            res.cookie('img', filename);
-            console.log('Change Complete');
-            return res.redirect('feed.html');
-        })
-    })
-})
-
-const updateImg = async (username, filen) => {
-    let sql = `UPDATE userinfo SET img = '${filen}' WHERE username = '${username}'`;
-    let result = await queryDB(sql);
-}
-
-//ทำให้สมบูรณ์
 app.get('/logout', (req,res) => {
     res.clearCookie('username')
     res.clearCookie('img')
     return res.redirect('login.html');
-})
-
-app.post('/createButton', async (req,res) => {
-    let sql = "CREATE TABLE IF NOT EXISTS buttondb (id INT , reg_date TIMESTAMP, lovecount INT, likecount INT, dislikecount INT)";
-    result = await queryDB(sql);
-    sql = `INSERT INTO buttondb (id) VALUES ("${1}")`;
-    result = await queryDB(sql);
-    res.send(result);
-    
-})
-
-app.get('/readButton', async (req,res) => {
-    let sql = `SELECT lovecount, likecount, dislikecount  FROM buttondb`;
-    let result = await queryDB(sql);
-    result = Object.assign({},result);
-    console.log(result);
-    res.send(result);
-})
-
-app.post('/updateLove',async (req,res) => {
-    let sql = `UPDATE buttondb SET lovecount = '${req.body.lovecount}' WHERE id = '1' `;
-    let result = await queryDB(sql);
-    res.send(result);
-})
-
-app.post('/updateLike',async (req,res) => {
-    let sql = `UPDATE buttondb SET likecount = '${req.body.likecount}' WHERE id = '1' `;
-    let result = await queryDB(sql);
-    res.send(result);
-})
-
-app.post('/updateDislike',async (req,res) => {
-    let sql = `UPDATE buttondb SET dislikecount = '${req.body.dislikecount}' WHERE id = '1' `;
-    let result = await queryDB(sql);
-    res.send(result);
 })
 
 //ทำให้สมบูรณ์

@@ -24,56 +24,47 @@ function pageLoad(){
 	createPost();
 	if(getCookie("comment")==1){
 		readPost("/readPost1");
-		post1();
 	}
 	if(getCookie("comment")==2){
 		readPost("/readPos2");
-		post2();
 	}
 	if(getCookie("comment")==3){
 		readPost("/readPost3");
-		post3();
 	}
 	if(getCookie("comment")==4){
 		readPost("/readPost4");
-		post4();
 	}
 	if(getCookie("comment")==5){
 		readPost("/readPost5");
-		post5();
+	}
+	document.getElementById('postbutton').onclick = getData;
+}
+
+function getData(){
+	if(getCookie("comment")==1){
+		startgetData("post1db");
+	}
+	if(getCookie("comment")==2){
+		startgetData("post2db");
+	}
+	if(getCookie("comment")==3){
+		startgetData("post3db");
+	}
+	if(getCookie("comment")==4){
+		startgetData("post4db");
+	}
+	if(getCookie("comment")==5){
+		startgetData("post5db");
 	}
 }
 
-function post1(){
-	alert("kuay");
-	document.getElementById('postbutton').onclick = getData("post1db");
-}
-
-function post2(){
-	alert("kuay2");
-	document.getElementById('postbutton').onclick = getData("post2db");
-}
-
-function post3(){
-	alert("kuay3");
-	document.getElementById('postbutton').onclick = getData("post3db");
-}
-
-function post4(){
-	alert("kuay4");
-	document.getElementById('postbutton').onclick = getData("post4db");
-}
-
-function post5(){
-	alert("kuay5");
-	document.getElementById('postbutton').onclick = getData("post5db");
-}
-
-function getData(database){
+function startgetData(database){
 	var msg = document.getElementById("textmsg").value;
 	document.getElementById("textmsg").value = "";
 	writePost(msg,database);
 }
+
+
 
 async function createPost(){
     const response = await fetch("/createPost",);
