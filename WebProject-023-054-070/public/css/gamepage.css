@@ -16,7 +16,7 @@
 
 #menu {
     grid-column: 1 / span 1;
-    grid-row: 3 / 10000;
+    grid-row: 3 / span 10000;
     background-color: rgb(60, 85, 117);
 }
 
