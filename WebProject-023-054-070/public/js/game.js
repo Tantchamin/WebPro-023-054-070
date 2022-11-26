@@ -160,7 +160,7 @@ async function writeScore(playerscore){
         },
         body: JSON.stringify({
         user:username,
-        score:playerscore
+        score:playerscore,
         })
     })
     

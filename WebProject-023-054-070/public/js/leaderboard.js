@@ -1,31 +1,34 @@
-window.onload = readPost;
+window.onload = readScore;
 
-async function readPost(){
-    const response = await fetch("/readScore");
-    const content = await response.json();
-    showPost(content);
+async function readScore() {
+	const response = await fetch("/readScore");
+	const content = await response.json();
+	showPost(content);
 
 }
 
-function showPost(data){
+function showPost(data) {
+	var scoreNumber = "Score";
 	var keys = Object.keys(data);
-	var divTag = document.getElementById("main2");
+	var divTag = document.getElementById("Score1");
 	divTag.innerHTML = "";
-	
-	for (var i = keys.length-1; i >=0 ; i--) {
 
+	for (var i = 0; i < 5; i++) {
+		scoreNumber = "Score"+(i+1);
+		divTag = document.getElementById(scoreNumber);
+		divTag.innerHTML = "";
 		var temp = document.createElement("div");
 		temp.className = "newsfeed";
 		divTag.appendChild(temp);
 		var temp1 = document.createElement("div");
 		temp1.className = "postmsg";
-		temp1.innerHTML = data[keys[i]]["score"];
+		temp1.innerHTML = "Score: " + data[keys[i]]["score"];
 		temp.appendChild(temp1);
 		var temp1 = document.createElement("div");
 		temp1.className = "postuser";
-		
-		temp1.innerHTML = "Played by: "+data[keys[i]]["username"];
+
+		temp1.innerHTML = "Player: " + data[keys[i]]["username"];
 		temp.appendChild(temp1);
-		
 	}
+
 }

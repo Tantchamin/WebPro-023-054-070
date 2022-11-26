@@ -175,9 +175,9 @@ app.post('/writePost',async (req,res) => {
 })
 
 app.get('/readScore', async (req,res) => {
-    let sql = "CREATE TABLE IF NOT EXISTS scoredb (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), score VARCHAR(100))";
+    let sql = "CREATE TABLE IF NOT EXISTS scoredb (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), score INT, likes INT)";
     let result = await queryDB(sql);
-    sql = `SELECT username, score FROM scoredb`;
+    sql = `SELECT username, score, likes FROM scoredb ORDER BY SCORE DESC`;
     result = await queryDB(sql);
     result = Object.assign({},result);
     console.log(result);
@@ -186,9 +186,9 @@ app.get('/readScore', async (req,res) => {
 
 app.post('/writeScore',async (req,res) => {
     let getScore = req.body.score;
-    let sql = `INSERT INTO scoredb (username, score) VALUES ("${req.body.user}", "${getScore}")`;
+    let sql = `INSERT INTO scoredb (username, score, likes) VALUES ("${req.body.user}", "${getScore}", "${0}")`;
     let result = await queryDB(sql);
-    sql = `SELECT username, score FROM scoredb`;
+    sql = `SELECT username, score, likes FROM scoredb ORDER BY SCORE DESC`;
     result = await queryDB(sql);
     result = Object.assign({},result);
     console.log(result);

@@ -1,7 +1,11 @@
 .grid-container {
     display: grid;
     grid-template-columns: 20% auto 20%;
-    grid-gap: 10px;
+
+}
+
+body{
+    margin: 0px;
 }
 
 #header {
