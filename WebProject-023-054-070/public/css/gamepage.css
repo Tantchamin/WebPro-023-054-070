@@ -1,23 +1,37 @@
 .grid-container {
     display: grid;
     grid-template-columns: 20% auto 20%;
-    grid-gap: 0.1px;
+    grid-gap: 5px;
 }
 
 #header {
     grid-column: 1 / span 3;
     background-color: rgb(211, 211, 211);
+    /* height: 100%; */
 }
 
 #tagmenu {
     grid-column: 1 / span 3;
     background-color: rgb(61, 61, 61);
+    /* height: 100%; */
 }
 
 #menu {
     grid-column: 1 / span 1;
-    grid-row: 3 / span 10000;
     background-color: rgb(60, 85, 117);
+    /* height: 100%; */
+}
+
+#menus {
+    grid-column: 1 / span 1;
+    background-color: rgb(60, 85, 117);
+    /* height: 100%; */
+}
+
+#menuss {
+    grid-column: 1 / span 1;
+    background-color: rgb(60, 85, 117);
+    /* height: 100%; */
 }
 
 #main {
@@ -52,7 +66,7 @@
 }
 
 #main2 {
-    grid-column: 2 / span 1;
+    grid-column: 2 / span 2;
     background-color: rgb(128, 159, 160);
 }
 
@@ -73,7 +87,18 @@
 
 .boldText {
     font-weight: bold;
-    color: white;
+    font-size: 250%;
+}
+
+.boldTexts {
+    font-weight: bold;
+    font-size: 250%;
+    margin-left: 44.5%;
+}
+
+.boldText2 {
+    font-weight: bold;
+    margin-top: 50%;
 }
 
 #posting {
@@ -100,8 +125,6 @@ textarea {
 
 #game-layer {
     border: 3px solid black;
-    height: 500px;
-    width: 1000px;
 }
 
 #logoutbutton {
@@ -113,7 +136,7 @@ textarea {
     margin-right: 95%;
     margin-left: auto;
     width: 1.5%;
-    height: 45%;
+    height: 30%;
 }
 
 #logo2 {
@@ -132,4 +155,13 @@ textarea {
 
 body {
     background-color: rgb(138, 138, 138);
+    margin: 0;
+}
+
+#game-layer {
+    text-align: center;
+}
+
+#topic {
+    color: white;
 }

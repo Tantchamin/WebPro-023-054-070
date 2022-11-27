@@ -3,6 +3,7 @@
 	margin: auto;
 	width: 40%;
 	background-color: rgb(255, 255, 255);
+	border-radius: 10%;
 }
 
 .form {
@@ -44,4 +45,8 @@ input {
 
 body {
 	background-color: rgb(129, 129, 129);
+}
+
+#login, #register{
+	margin-bottom: 10%;
 }
