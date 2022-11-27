@@ -26,7 +26,7 @@ function pageLoad(){
 		readPost("/readPost1");
 	}
 	if(getCookie("comment")==2){
-		readPost("/readPos2");
+		readPost("/readPost2");
 	}
 	if(getCookie("comment")==3){
 		readPost("/readPost3");

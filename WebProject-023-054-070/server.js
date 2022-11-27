@@ -24,15 +24,6 @@ const storage = multer.diskStorage({
     }
   });
 
-const imageFilter = (req, file, cb) => {
-    // Accept images only
-    if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) {
-        req.fileValidationError = 'Only image files are allowed!';
-        return cb(new Error('Only image files are allowed!'), false);
-    }
-    cb(null, true);
-};
-
 // ใส่ค่าตามที่เราตั้งไว้ใน mysql
 const con = mysql.createConnection({
     host: "localhost",
@@ -68,9 +59,8 @@ app.post('/regisDB', async (req,res) => {
     if(checkpassword != recheckpassword){
         return res.redirect('register.html');
     }
-    sql = `INSERT INTO userinfo (username, password, img) VALUES ("${req.body.username}", "${req.body.password}", "avatar.png")`;
+    sql = `INSERT INTO userinfo (username, password) VALUES ("${req.body.username}", "${req.body.password}")`;
     result = await queryDB(sql);
-    console.log("New record created successfullyone");
     return res.redirect('login.html');
 
 })
@@ -102,7 +92,6 @@ app.get('/readPost1', async (req,res) => {
     sql = `SELECT username, post FROM post1db`; 
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
     res.send(result);
 })
 
@@ -112,7 +101,6 @@ app.get('/readPost2', async (req,res) => {
     sql = `SELECT username, post FROM post2db`; 
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
     res.send(result);
 })
 
@@ -122,7 +110,6 @@ app.get('/readPost3', async (req,res) => {
     sql = `SELECT username, post FROM post3db`; 
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
     res.send(result);
 })
 
@@ -132,7 +119,6 @@ app.get('/readPost4', async (req,res) => {
     sql = `SELECT username, post FROM post4db`; 
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
     res.send(result);
 })
 
@@ -142,7 +128,6 @@ app.get('/readPost5', async (req,res) => {
     sql = `SELECT username, post FROM post5db`; 
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
     res.send(result);
 })
 
@@ -154,7 +139,6 @@ app.post('/writePost',async (req,res) => {
     sql = `SELECT username, post FROM ${req.body.table}`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
     res.send(result);
 })
 
@@ -164,7 +148,6 @@ app.get('/readScore', async (req,res) => {
     sql = `SELECT id, username, score, likes FROM scoredb ORDER BY SCORE DESC`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
     res.send(result);
 })
 
@@ -175,7 +158,6 @@ app.post('/writeScore',async (req,res) => {
     sql = `SELECT username, score, likes FROM scoredb ORDER BY SCORE DESC`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
     res.send(result);
 })
 
@@ -186,13 +168,10 @@ app.post('/checkLogin',async (req,res) => {
     let sql = `SELECT * FROM userinfo WHERE username = '${userForm}' AND password = '${passForm}'`
     let result = await queryDB(sql);
     if(result.length == 0){
-        console.log("False")
         return res.redirect('login.html?error=1')
     }
     else if(userForm == result[0].username && passForm == result[0].password){
         res.cookie('username', userForm)
-        res.cookie('img', result[0].img)
-        console.log("Now, You are Log in")
         return res.redirect('homepage.html');
     }
     console.log(result)

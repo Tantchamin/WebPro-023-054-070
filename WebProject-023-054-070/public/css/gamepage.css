@@ -1,39 +1,33 @@
 .grid-container {
     display: grid;
     grid-template-columns: 20% auto 20%;
-
-}
-
-body{
-    margin: 0px;
+    grid-gap: 0.1px;
 }
 
 #header {
     grid-column: 1 / span 3;
-    background-color: lightsteelblue;
+    background-color: rgb(211, 211, 211);
 }
 
-#tagmenu{
+#tagmenu {
     grid-column: 1 / span 3;
-    border-radius: 25px;
-    background-color: cornflowerblue;
+    background-color: rgb(61, 61, 61);
 }
 
 #menu {
     grid-column: 1 / span 1;
-    border-radius: 25px;
-    background-color: lightsteelblue;
+    grid-row: 3 / span 10000;
+    background-color: rgb(60, 85, 117);
 }
 
 #main {
     grid-column: 2 / span 1;
-    background-color: cadetblue;
+    background-color: rgb(138, 138, 138);
 }
 
 #submenu {
     grid-column: 3/ span 1;
-    border-radius: 25px;
-    background-color: lightsteelblue;
+    background-color: rgb(138, 138, 138);
 }
 
 .grid-container2 {
@@ -47,26 +41,28 @@ body{
     background-color: lightsteelblue;
 }
 
-#tagmenu2{
+#tagmenu2 {
     grid-column: 1 / span 2;
-    border-radius: 25px;
-    background-color: cornflowerblue;
+    background-color: rgb(141, 141, 141);
 }
 
 #menu2 {
     grid-column: 1 / span 1;
-    border-radius: 25px;
     background-color: lightsteelblue;
 }
 
 #main2 {
-    grid-column: 2 / span 2;
-    background-color: cadetblue;
+    grid-column: 2 / span 1;
+    background-color: rgb(128, 159, 160);
 }
 
 #menu3 {
+    grid-column: 2 / span 2;
+    background-color: lightsteelblue;
+}
+
+#menu4 {
     grid-column: 1 / span 3;
-    border-radius: 25px;
     background-color: lightsteelblue;
 }
 
@@ -77,40 +73,63 @@ body{
 
 .boldText {
     font-weight: bold;
+    color: white;
 }
 
-#posting{
-	text-align: right;
-	padding-right: 3%;
-	width:50%;
-	
+#posting {
+    margin-top: 3%;
+    text-align: right;
+    padding-right: 3%;
+    width: 50%;
 }
 
-textarea{
-	width: 90%;
-	min-width: 200px;
-	height: 100px;
-	margin-right: 0px;
-	text-align: left;
-	font-size: 20px;
+textarea {
+    width: 90%;
+    min-width: 200px;
+    height: 100px;
+    margin-right: 0px;
+    text-align: left;
+    font-size: 20px;
 }
 
-#postbutton{
-	width:20%;
-	min-width: 100px;
-	font-size: 20px;
+#postbutton {
+    width: 20%;
+    min-width: 100px;
+    font-size: 20px;
 }
 
-#game-layer{
+#game-layer {
     border: 3px solid black;
+    height: 500px;
+    width: 1000px;
 }
 
-#logoutbutton{
+#logoutbutton {
     margin-right: auto;
     margin-left: 95.5%;
 }
 
-div > canvas{
-    margin-top: 10px;
-    border: 5px solid red;
+#logo1 {
+    margin-right: 95%;
+    margin-left: auto;
+    width: 1.5%;
+    height: 45%;
+}
+
+#logo2 {
+    width: 50%;
+    height: 50%;
+}
+
+#heart,
+#like,
+#dislike {
+    min-height: 0%;
+    min-width: 0%;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+body {
+    background-color: rgb(138, 138, 138);
 }
