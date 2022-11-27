@@ -1,51 +1,47 @@
-#container{
+#container {
 	padding-top: 100px;
 	margin: auto;
 	width: 40%;
-	background-color: rgb(162, 255, 201);
-	border-radius: 40%;
-	border: 5px dashed blue;
+	background-color: rgb(255, 255, 255);
 }
 
-.form{
-	
-	font-size:18px;
+.form {
+
+	font-size: 18px;
 }
 
-.form input{
+.form input {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	font-size:18px;
+	font-size: 18px;
 }
 
-#errordisplay{
+#errordisplay {
 	/*margin-top: -20px;*/
-	font-size:12px;
+	font-size: 12px;
 	color: #EE0019;
 }
 
-input{
+input {
 	border-radius: 7px;
 }
 
-#logo1{
-    margin-right: 95%;
-    margin-left: auto;
-    width: 3%;
-    height: 55%;
+#logo1 {
+	margin-right: 95%;
+	margin-left: auto;
+	width: 3%;
+	height: 55%;
 }
 
-#logo2{
-    width: 50%;
-    height: 50%;
+#logo2 {
+	width: 50%;
+	height: 50%;
 }
 
 .centerPage {
-    text-align: center;
+	text-align: center;
 }
 
-body{
-	background-color: rgb(236, 195, 229);
+body {
+	background-color: rgb(129, 129, 129);
 }
-
-
