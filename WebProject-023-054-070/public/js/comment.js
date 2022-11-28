@@ -109,11 +109,11 @@ function showPost(data){
 		var temp = document.createElement("div");
 		temp.className = "newsfeed";
 		divTag.appendChild(temp);
-		var temp1 = document.createElement("div");
+		var temp1 = document.createElement("span");
 		temp1.className = "postmsg";
 		temp1.innerHTML = data[keys[i]]["post"];
 		temp.appendChild(temp1);
-		var temp1 = document.createElement("div");
+		var temp1 = document.createElement("span");
 		temp1.className = "postuser";
 		
 		temp1.innerHTML = "Posted by: "+data[keys[i]]["username"];
