@@ -149,7 +149,7 @@ async function readScore(){
 
 }
 
-// complete it
+
 async function writeScore(playerscore){
     let username = getCookie('username');
 	let response = await fetch("/writeScore", {
@@ -165,6 +165,6 @@ async function writeScore(playerscore){
     })
     
     const content = await response.json();
-	//console.log(playerscore);
+	
     console.log(content);
 }

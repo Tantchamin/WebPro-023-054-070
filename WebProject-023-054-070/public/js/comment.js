@@ -1,5 +1,3 @@
-var db;
-
 function checkCookie(){
 	var username = "";
 	if(getCookie("username")==false){
@@ -21,6 +19,9 @@ function getCookie(name){
 }
 
 function pageLoad(){
+	var username = getCookie('username');
+
+	document.getElementById("username").innerHTML = "User: "+username;
 	createPost();
 	if(getCookie("comment")==1){
 		readPost("/readPost1");

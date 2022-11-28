@@ -24,12 +24,12 @@ const storage = multer.diskStorage({
     }
   });
 
-// ใส่ค่าตามที่เราตั้งไว้ใน mysql
+
 const con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "BESTrock120244",
-    database: "web"
+    password: "rootPassword",
+    database: "project"
 })
 
 con.connect(err => {
@@ -55,7 +55,7 @@ app.post('/regisDB', async (req,res) => {
     let result = await queryDB(sql);
     let checkpassword = req.body.password;
     let recheckpassword = req.body.repassword;
-    // ตรวจ password
+    
     if(checkpassword != recheckpassword){
         return res.redirect('register.html');
     }
@@ -65,14 +65,14 @@ app.post('/regisDB', async (req,res) => {
 
 })
 
-//ทำให้สมบูรณ์
+
 app.get('/logout', (req,res) => {
     res.clearCookie('username')
     res.clearCookie('img')
     return res.redirect('login.html');
 })
 
-//ทำให้สมบูรณ์
+
 app.get('/createPost', async (req,res) => {
     let sql = "CREATE TABLE IF NOT EXISTS post1db (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255), post VARCHAR(100))";
     let result = await queryDB(sql);
@@ -131,7 +131,7 @@ app.get('/readPost5', async (req,res) => {
     res.send(result);
 })
 
-//ทำให้สมบูรณ์
+
 app.post('/writePost',async (req,res) => {
     let getPost = req.body.message;
     let sql = `INSERT INTO ${req.body.table} (username, post) VALUES ("${req.body.user}", "${getPost}")`;
@@ -161,7 +161,7 @@ app.post('/writeScore',async (req,res) => {
     res.send(result);
 })
 
-//ทำให้สมบูรณ์
+
 app.post('/checkLogin',async (req,res) => {
     let userForm = req.body.username;
     let passForm = req.body.password;

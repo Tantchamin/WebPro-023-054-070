@@ -19,21 +19,21 @@
 #menu {
     grid-column: 1 / span 1;
     background-color: #181A2A;
-    grid-row: 3 / span 10;
+    grid-row: 3 / span 5;
     height: 100%;
 }
 
 #menus {
     grid-column: 1 / span 1;
     background-color: #181A2A;
-    grid-row: 3 / span 15;
+    grid-row: 3 / span 55;
     height: 100%;
 }
 
 #menuss {
     grid-column: 1 / span 1;
     background-color: #181A2A;
-    grid-row: 3 / span 110;
+    grid-row: 3 / span 121;
     height: 100%;
 }
 
@@ -105,6 +105,13 @@
     margin-top: 50%;
 }
 
+.boldText3 {
+    font-weight: bold;
+    font-size: 250%;
+    margin-top: 10%;
+    color: white;
+}
+
 #posting {
     margin-top: 3%;
     text-align: right;
@@ -122,7 +129,7 @@ textarea {
 }
 
 .margintop{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #postbutton {
@@ -132,13 +139,15 @@ textarea {
 }
 
 #logoutbutton {
-    margin-left: 93%;
+    margin-right: auto;
+    margin-left: 95.5%;
 }
 
 #logo1 {
-    margin-left: 0.5%;
-    width: 30px;
-    height: 30px;
+    margin-right: 95%;
+    margin-left: auto;
+    width: 1.5%;
+    height: 30%;
 }
 
 #logo2 {
@@ -191,6 +200,10 @@ canvas{
     margin-top: 3%;
 }
 
-.size {
+.size{
     font-size: 200%;
+}
+
+.postuser{
+    margin-left: 10%;
 }

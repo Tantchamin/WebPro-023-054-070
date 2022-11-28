@@ -1,6 +1,19 @@
 window.onload = pageLoad;
 
+function getCookie(name){
+	var value = "";
+	try{
+		value = document.cookie.split("; ").find(row => row.startsWith(name)).split('=')[1]
+		return value
+	}catch(err){
+		return false
+	} 
+}
+
 function pageLoad(){
+	var username = getCookie('username');
+
+	document.getElementById("username").innerHTML = "User: "+username;
 	readScore();
 	document.getElementById('like1').onclick = likeclick1;
 	document.getElementById('like2').onclick = likeclick2;
@@ -39,7 +52,7 @@ function showPost(data) {
 		temp1.innerHTML = "Score: " + data[keys[i]]["score"];
 		temp.appendChild(temp1);
 		var temp1 = document.createElement("div");
-		temp1.className = "postuser";
+		temp1.className = "playeruser";
 
 		temp1.innerHTML = "Player: " + data[keys[i]]["username"];
 		temp.appendChild(temp1);
