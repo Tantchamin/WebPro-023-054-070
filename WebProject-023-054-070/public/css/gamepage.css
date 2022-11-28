@@ -6,42 +6,45 @@
 
 #header {
     grid-column: 1 / span 3;
-    background-color: rgb(211, 211, 211);
+    background-color: #E53155;
     /* height: 100%; */
 }
 
 #tagmenu {
     grid-column: 1 / span 3;
-    background-color: rgb(61, 61, 61);
+    background-color: #181A2A;
     /* height: 100%; */
 }
 
 #menu {
     grid-column: 1 / span 1;
-    background-color: rgb(60, 85, 117);
-    /* height: 100%; */
+    background-color: #181A2A;
+    grid-row: 3 / span 5;
+    height: 100%;
 }
 
 #menus {
     grid-column: 1 / span 1;
-    background-color: rgb(60, 85, 117);
-    /* height: 100%; */
+    background-color: #181A2A;
+    grid-row: 3 / span 55;
+    height: 100%;
 }
 
 #menuss {
     grid-column: 1 / span 1;
-    background-color: rgb(60, 85, 117);
-    /* height: 100%; */
+    background-color: #181A2A;
+    grid-row: 3 / span 121;
+    height: 100%;
 }
 
 #main {
     grid-column: 2 / span 1;
-    background-color: rgb(138, 138, 138);
+    background-color: #2A2B3B;
 }
 
 #submenu {
     grid-column: 3/ span 1;
-    background-color: rgb(138, 138, 138);
+    background-color: #33343f;
 }
 
 .grid-container2 {
@@ -67,12 +70,12 @@
 
 #main2 {
     grid-column: 2 / span 2;
-    background-color: rgb(128, 159, 160);
+    background-color: #212330;
 }
 
 #menu3 {
     grid-column: 2 / span 2;
-    background-color: lightsteelblue;
+    background-color: #212330;
 }
 
 #menu4 {
@@ -154,7 +157,7 @@ textarea {
 }
 
 body {
-    background-color: rgb(138, 138, 138);
+    background-color: #2A2B3B;
     margin: 0;
 }
 
@@ -163,5 +166,9 @@ body {
 }
 
 #topic {
+    color: #E53155;
+}
+
+.font {
     color: white;
 }
