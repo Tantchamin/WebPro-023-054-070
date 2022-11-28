@@ -35,10 +35,6 @@ function showPost(data) {
 		temp.className = "newsfeed";
 		divTag.appendChild(temp);
 		var temp1 = document.createElement("div");
-		temp1.className = "postid";
-		temp1.innerHTML = "ID: " + data[keys[i]]["id"];
-		temp.appendChild(temp1);
-		var temp1 = document.createElement("div");
 		temp1.className = "postmsg";
 		temp1.innerHTML = "Score: " + data[keys[i]]["score"];
 		temp.appendChild(temp1);

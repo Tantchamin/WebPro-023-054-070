@@ -17,6 +17,7 @@ function getCookie(name){
 }
 
 function pageLoad(){
+    readScore();
     document.getElementById('playbutton').onclick = startGame;
     check = false;
 }
@@ -100,7 +101,6 @@ function updateGameArea() {
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
             if(check == false){
-                readScore();
                 writeScore(playerscore);
                 check = true;
             }
